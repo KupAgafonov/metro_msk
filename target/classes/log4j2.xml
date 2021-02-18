@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="PRINT"/>
+            </Filters>
+        </Console>
+
+        <File name="Connections" fileName="src/main/resources/logs/Connections.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="CONNECTIONS_COUNT"/>
+            </Filters>
+        </File>
+
+        <File name="Stations" fileName="src/main/resources/logs/Stations.log">
+            <PatternLayout pattern="%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="PRINT_STATIONS"/>
+            </Filters>
+        </File>
+
+        <File name="Exceptions" fileName="src/main/resources/logs/Exceptions.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm}%msg%n"/>
+            <Filters>
+                <MarkerFilter marker="EXCEPTION"/>
+            </Filters>
+        </File>
+    </appenders>
+
+    <loggers>
+        <root level="info">
+            <appender-ref ref="Connections"/>
+            <appender-ref ref="Stations"/>
+            <appender-ref ref="Exceptions"/>
+
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+
+
+</configuration>
+
+
+
